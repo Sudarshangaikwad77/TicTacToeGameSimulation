@@ -32,13 +32,18 @@ public class TicTacToeGame {
         }
         System.out.println();
     }
+
+    public boolean isCellFree(int index) {
+        return board[index] == ' ';
+    }
     public void makeMove(int index, char letter) {
-        if (board[index] == ' ') {
+        if (isCellFree(index)) {
             board[index] = letter;
         } else {
             System.out.println("The cell is not empty. Please choose another cell.");
         }
     }
+
 
     public void play() {
         Scanner scanner = new Scanner(System.in);
@@ -46,9 +51,10 @@ public class TicTacToeGame {
         do {
             System.out.println("Please enter the index to make your move (1-9):");
             index = scanner.nextInt();
-        } while (index < 1 || index > 9 || board[index] != ' ');
+        } while (index < 1 || index > 9 || !isCellFree(index));
         makeMove(index, playerLetter);
         displayBoard();
     }
-}
+    }
+
 
