@@ -11,6 +11,7 @@ public class TicTacToeMain {
             TicTacToeGame game = new TicTacToeGame(playerLetter);
             game.displayBoard();
             game.showBoard();
+            game.play();
 
         }
 

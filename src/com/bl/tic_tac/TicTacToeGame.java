@@ -1,4 +1,7 @@
 package com.bl.tic_tac;
+
+import java.util.Scanner;
+
 public class TicTacToeGame {
     private char[] board;
     private char playerLetter;
@@ -28,6 +31,24 @@ public class TicTacToeGame {
             }
         }
         System.out.println();
+    }
+    public void makeMove(int index, char letter) {
+        if (board[index] == ' ') {
+            board[index] = letter;
+        } else {
+            System.out.println("The cell is not empty. Please choose another cell.");
+        }
+    }
+
+    public void play() {
+        Scanner scanner = new Scanner(System.in);
+        int index;
+        do {
+            System.out.println("Please enter the index to make your move (1-9):");
+            index = scanner.nextInt();
+        } while (index < 1 || index > 9 || board[index] != ' ');
+        makeMove(index, playerLetter);
+        displayBoard();
     }
 }
 
