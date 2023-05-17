@@ -10,6 +10,7 @@ public class TicTacToeMain {
             char playerLetter = scanner.nextLine().charAt(0);
             TicTacToeGame game = new TicTacToeGame(playerLetter);
             game.displayBoard();
+            game.showBoard();
 
         }
 
