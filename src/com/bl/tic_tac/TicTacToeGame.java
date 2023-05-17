@@ -1,11 +1,13 @@
 package com.bl.tic_tac;
 
 import java.util.Scanner;
+import java.util.Random;
 
 public class TicTacToeGame {
     private char[] board;
     private char playerLetter;
     private char computerLetter;
+    private Random random;
 
     public TicTacToeGame(char playerLetter) {
         board = new char[10];
@@ -54,6 +56,20 @@ public class TicTacToeGame {
         } while (index < 1 || index > 9 || !isCellFree(index));
         makeMove(index, playerLetter);
         displayBoard();
+    }
+    public void toss() {
+        int tossResult = random.nextInt(2);
+        String result = (tossResult == 0) ? "Heads" : "Tails";
+        System.out.println("Toss result: " + result);
+        if (tossResult == 0) {
+            System.out.println("You play first.");
+        } else {
+            System.out.println("Computer plays first.");
+            int computerIndex = random.nextInt(9) + 1;
+            makeMove(computerIndex, computerLetter);
+            System.out.println("Computer has played at cell " + computerIndex);
+            displayBoard();
+        }
     }
     }
 
